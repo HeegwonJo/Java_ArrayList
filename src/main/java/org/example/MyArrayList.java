@@ -57,12 +57,21 @@ public class MyArrayList<T>{
         this.size=0;
     }
 
-    public int indexOf(T element1) {
+    public int indexOf(T element) {
         for(int i=0; i<this.size; i++){
-            if(this.data[i].equals(element1)){
+            if(this.data[i].equals(element)){
                 return i;
             }
         }
         return -1;
+    }
+
+    public boolean contains(T element){
+        for(Object Ob:this.data){
+            if(Ob.equals(element)){
+                return true;
+            }
+        }
+        return false;
     }
 }

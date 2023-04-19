@@ -60,7 +60,7 @@ class MyArrayListTest {
         assertEquals(0, list.size());
     }
     @Test
-    void testIndexOf() {
+    void IndexOf테스트() {
         list.add("Element1");
         list.add("Element2");
         list.add("Element1");
@@ -68,6 +68,15 @@ class MyArrayListTest {
         assertEquals(1, list.indexOf("Element2"));
         assertEquals(-1, list.indexOf("Element3"));
     }
+
+    @Test
+    void Contains테스트() {
+        list.add("Element1");
+        list.add("Element2");
+        assertTrue(list.contains("Element1"));
+        assertFalse(list.contains("Element3"));
+    }
+
 
 
 }
