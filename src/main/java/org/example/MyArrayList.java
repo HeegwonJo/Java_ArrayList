@@ -81,8 +81,8 @@ public class MyArrayList<T>{
     }
 
     public boolean contains(T element){
-        for(Object Ob:this.data){
-            if(Ob.equals(element)){
+        for(int i =0; i<this.size; i++){
+            if(this.data[i].equals(element)){
                 return true;
             }
         }
