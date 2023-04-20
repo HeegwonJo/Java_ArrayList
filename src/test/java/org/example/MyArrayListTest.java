@@ -26,6 +26,14 @@ class MyArrayListTest {
         assertEquals(1, list.size());
         assertEquals("Element1", list.get(0));
     }
+    @Test
+    void add테스트2() {
+        list.add("Element1");
+        list.add("Element2");
+        list.add(1,"Element3");
+        assertEquals(3, list.size());
+        assertEquals("Element3", list.get(1));
+    }
 
     @Test
     void get테스트() {

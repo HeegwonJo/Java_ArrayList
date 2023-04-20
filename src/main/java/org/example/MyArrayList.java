@@ -5,7 +5,7 @@ public class MyArrayList<T>{
     private int size;
 
     public MyArrayList() {
-        this.data = new Object[0];
+        this.data = new Object[10];
         this.size = 0;
     }
 
@@ -22,6 +22,20 @@ public class MyArrayList<T>{
         this.size++;
         return true;
     }
+    public void add(int index, T element) {
+        // index가 유효한지 확인하고, 필요한 경우 capacity를 늘립니다.
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        // index 위치에 element를 추가하고, 뒤쪽의 element들을 한 칸씩 뒤로 이동합니다.
+        for (int i = size - 1; i >= index; i--) {
+            data[i + 1] = data[i];
+        }
+        data[index] = element;
+        size++;
+    }
+
 
     public T get(int index) {
         if (index < 0 || index >= this.size) {
@@ -43,7 +57,7 @@ public class MyArrayList<T>{
     }
 
     private void resize() {
-        Object[] newData = new Object[this.data.length + 1];
+        Object[] newData = new Object[this.data.length *2];
         System.arraycopy(this.data, 0, newData, 0, this.data.length);
         this.data = newData;
     }
